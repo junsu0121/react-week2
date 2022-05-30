@@ -62,7 +62,7 @@ export const addWordFB = (word) => {
     const docRef = await addDoc(collection(db, "homework"), word);
     //    이름붙여서                            넣을 위치        넣을정보
     const _word = await getDoc(docRef);
-    //리덕스에 넣기위해
+    // 리덕스에 넣기위해
     dispatch(createWord({ id: _word.id, ..._word.data() }));
   };
 };

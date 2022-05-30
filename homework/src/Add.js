@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import { createWord, addWordFB } from "./redux/modules/homework";
+import { addWordFB } from "./redux/modules/homework";
 import { useDispatch } from "react-redux";
 // import { addWordFB } from "./redux/modules/homework";
 

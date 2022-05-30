@@ -51,9 +51,11 @@ const WordList = () => {
     </div>
   );
 };
-
+const Wrap = styled.div`
+  max-height: 100vh;
+`;
 const WordBoxWrap = styled.div`
-  max-height: 90vh;
+  max-height: 80vh;
   overflow-y: scroll;
 `;
 const WordBox = styled.div`
