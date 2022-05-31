@@ -10,6 +10,7 @@ import {
   addDoc,
   updateDoc,
   deleteDoc,
+  getDocsFromServer,
 } from "firebase/firestore";
 // const word_db = db.collection("homework");
 // Actions -> 사용할 액션들 만들어줌! (LOAD,CREATE,UPDATE,REMOVE 중 만들어줌!)

@@ -17,22 +17,18 @@ const WordList = () => {
     <div>
       <h1>과일 모음집</h1>
       <WordBoxWrap>
-        {word_list &&
-          // React 는 렌더링이 화면에 커밋 된 후에야 모든 효과를 실행하기 때문이다.
-          // 즉 React는 return에서 articles.map(...)을 반복실행할 때 첫 턴에 데이터가 아직 안들어와도 렌더링이 실행되며 당연히 그 데이터는 undefined로 정의되어 오류가 나는 것이다.
-          // 따라서 && 붙여서  true && expression은 항상 expression으로 실행되고 false && expression은 항상 false로 실행된다. 따라서 조건이 참이면 && 바로 뒤의 요소가 출력에 나타난다
-          word_list.map((list, idx) => {
-            // console.log(word_list);
-            //잘들어옴!
-            return (
-              <WordBox key={idx}>
-                <Title>과일</Title>
-                <p>{list.word}</p>
-                <Title>색깔</Title>
-                <p>{list.desc}</p>
-                <Title>맛</Title>
-                <Ex>{list.ex}</Ex>
-                {/* <button
+        {word_list.map((list, idx) => {
+          // console.log(word_list);
+          //잘들어옴!
+          return (
+            <WordBox key={idx}>
+              <Title>과일</Title>
+              <p>{list.word}</p>
+              <Title>색깔</Title>
+              <p>{list.desc}</p>
+              <Title>맛</Title>
+              <Ex>{list.ex}</Ex>
+              {/* <button
                   onClick={() => {
                     dispatch(deleteWordFB(word_list[word_index].id));
                     //id 지정해줘서 삭제!
@@ -41,9 +37,9 @@ const WordList = () => {
                 >
                   삭제하기
                 </button> */}
-              </WordBox>
-            );
-          })}
+            </WordBox>
+          );
+        })}
       </WordBoxWrap>
       <Link to="/add">
         <Btn>추가하기</Btn>
