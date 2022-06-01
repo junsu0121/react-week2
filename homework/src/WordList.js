@@ -1,30 +1,30 @@
 import React from "react";
 import styled from "styled-components";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { loadWordFB, deleteWordFB } from "./redux/modules/homework";
+import { deleteWordFB } from "./redux/modules/homework";
 // store에서 만든 액션생성함수 임포트!
 
 const WordList = () => {
-  const dispatch = useDispatch();
+  const history = useHistory();
 
-  React.useEffect(() => {
-    //화면에 mount(떳을) 때 실행
-    dispatch(loadWordFB());
-    // return 하면  unmount될 때 실행
-  }, [dispatch]);
   const word_list = useSelector((state) => state.homework.list);
   //                        스토어(모듈)에서 만든 state값을 받아서 => 이 컴포넌트에서 받음
 
   return (
     <div>
-      <h1>과일 모음집</h1>
+      <h1>Fruits</h1>
       <WordBoxWrap>
-        {word_list.map((list, idx) => {
+        {word_list.map((list, index) => {
           // console.log(word_list);
           //잘들어옴!
           return (
-            <WordBox key={idx}>
+            <WordBox
+              key={index}
+              onClick={() => {
+                history.push(`/modify/${index}`);
+              }}
+            >
               <Title>과일</Title>
               <p>{list.word}</p>
               <Title>색깔</Title>

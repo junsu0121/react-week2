@@ -1,12 +1,28 @@
 import React from "react";
 import styled from "styled-components";
 import { Route, Switch } from "react-router-dom";
+import { useDispatch } from "react-redux";
 import WordList from "./WordList";
 import Add from "./Add";
+import Modify from "./Modify";
+import { loadWordFB } from "./redux/modules/homework";
 
 function App() {
+  const dispatch = useDispatch();
+  React.useEffect(() => {
+    //화면에 mount(떳을) 때 실행
+    dispatch(loadWordFB());
+    // return 하면  unmount될 때 실행
+  }, [dispatch]);
   return (
-    <div className="App">
+    <div
+      className="App"
+      style={{
+        background: "url(./img/fruit.jpeg)",
+        backgroundPosition: "center",
+        backgroundSize: "cover",
+      }}
+    >
       <Container>
         <Switch>
           <Route path="/" exact>
@@ -15,6 +31,7 @@ function App() {
           <Route path="/add" exact>
             <Add />
           </Route>
+          <Route path="/modify/:index" component={Modify} />
         </Switch>
       </Container>
     </div>
