@@ -9,9 +9,12 @@ const WordList = () => {
   const dispatch = useDispatch();
 
   React.useEffect(() => {
+    //화면에 mount(떳을) 때 실행
     dispatch(loadWordFB());
+    // return 하면  unmount될 때 실행
   }, [dispatch]);
   const word_list = useSelector((state) => state.homework.list);
+  //                        스토어(모듈)에서 만든 state값을 받아서 => 이 컴포넌트에서 받음
 
   return (
     <div>
